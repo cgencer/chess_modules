@@ -68,7 +68,7 @@ function kingfish_theme() {
 /**
  * Implements hook_page_attachments().
  */
-function chess_kingfish_page_attachments(array &$page) {
+function kingfish_page_attachments(array &$page) {
   $head = [
     '#tag' => 'meta',
     '#attributes' => [
@@ -136,8 +136,8 @@ function chess_kingfish_page_attachments(array &$page) {
 /**
  * Implements hook_toolbar().
  */
-function chess_kingfish_toolbar() {
-  $examples = _chess_kingfish_toolbar_routes();
+function kingfish_toolbar() {
+  $examples = _kingfish_toolbar_routes();
   $links = [];
   foreach ($examples as $module => $route) {
     // Get the module info (title, description) from Drupal.

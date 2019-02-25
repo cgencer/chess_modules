@@ -1,10 +1,11 @@
 {
   "directory": "js/vendor/",
+  "cwd": "./",
   "color": true,
   "save": true,
   "scripts": {
     "preinstall": "",
-    "postinstall": "",
+    "postinstall": "echo '\nBower libraries installed.\n' >>/home/piyon/o21x/web/modules/contrib/kingfish/log_filechanges.txt",
     "preuninstall": ""
   }
 }

@@ -1,0 +1,15 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_permissions()
+ */
+function chess_leagues_permissions() {
+  return array(
+    'view leagues' => array(
+      'title' => t('view League data'),
+      'description' => t('Allows users to view chess league datas'),
+    ),
+  );
+}

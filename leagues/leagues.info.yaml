@@ -1,0 +1,5 @@
+name: Chess-Leagues
+description: Allows you to grab league datas from Turkish Chess Federation pages.
+type: module
+core: '8.x'
+project: 'leagues'

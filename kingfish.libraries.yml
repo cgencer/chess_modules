@@ -54,10 +54,10 @@ fields_elo:
     - core/jquery.once
     - core/drupal
   js:
-    ../js/restrict2Num.js: {}
+    js/restrict2Num.js: {}
   css:
     theme:
-      ../css/fields_elo.css: {}
+      css/fields_elo.css: {}
 
 fields_ukd:
   version: 1.x
@@ -66,10 +66,10 @@ fields_ukd:
     - core/jquery.once
     - core/drupal
   js:
-    ../js/restrict2Num.js: {}
+    js/restrict2Num.js: {}
   css:
     theme:
-      ../css/fields_ukd.css: {}
+      css/fields_ukd.css: {}
 
 fields_uys:
   version: 1.x
@@ -78,10 +78,10 @@ fields_uys:
     - core/jquery.once
     - core/drupal
   js:
-    ../js/restrict2Num.js: {}
+    js/restrict2Num.js: {}
   css:
     theme:
-      ../css/fields_uys.css: {}
+      css/fields_uys.css: {}
 
 fields_uhs:
   version: 1.x
@@ -90,11 +90,10 @@ fields_uhs:
     - core/jquery.once
     - core/drupal
   js:
-    ../js/restrict2Num.js: {}
+    js/restrict2Num.js: {}
   css:
     theme:
-      ../css/fields_uhs.css: {}
-
+      css/fields_uhs.css: {}
 
 pgnvjs:
   version: 1.0.0
