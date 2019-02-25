@@ -1,0 +1,10 @@
+name: Chess-KingFish
+description: KingFish Chess Tools
+type: module
+core: 8.x
+package: 'Piyon Akademi'
+project: 'kingfish'
+dependencies:
+  - drupal:block
+  - drupal:node
+  - chess_tsf

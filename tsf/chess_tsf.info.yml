@@ -1,0 +1,8 @@
+name: Chess-TSF
+description: 'Allows you to grab various scores from TSF (Turkish Chess Federation) pages.'
+type: module
+core: '8.x'
+package: 'Piyon Akademi'
+project: 'chess_tsf'
+dependencies:
+  - field

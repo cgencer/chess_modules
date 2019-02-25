@@ -1,0 +1,205 @@
+<?php
+
+/**
+ * @file
+ * Module file for block_example.
+ */
+
+use Drupal\Core\Block\BlockPluginInterface;
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Url;
+
+/**
+ * @defgroup kingfish
+ * @ingroup piyonAkademi
+ * @{
+ * Demonstrates code creation of blocks.
+ */
+
+function kingfish_theme() {
+  return [
+    'block_chessboard' => [
+      'variables' => [
+        'title' => NULL, 
+        'description' => NULL
+      ],
+      'template' => 'block--cbBoard-kingfish',
+      '#attached' => [
+        'library' => [
+          'kingfish/cbBoard'
+        ],
+      ],
+    ],
+    'block_chessmoves' => [
+      'template' => 'block--cbMoves-kingfish',
+      '#attached' => [
+        'library' => [
+          'kingfish/cbBoard'
+        ],
+      ],
+    ],
+    'block_chessheader' => [
+      'template' => 'block--cbHeader-kingfish',
+      '#attached' => [
+        'library' => [
+          'kingfish/cbBoard'
+        ],
+      ],
+    ],
+    'block_chessbuttons' => [
+      'template' => 'block--cbButtons-kingfish',
+      '#attached' => [
+        'library' => [
+          'kingfish/cbBoard'
+        ],
+      ],
+    ],
+    'block_chessAI' => [
+      'template' => 'block--cbAI-kingfish',
+      '#attached' => [
+        'library' => [
+          'kingfish/cbAI'
+        ],
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function chess_kingfish_page_attachments(array &$page) {
+  $head = [
+    '#tag' => 'meta',
+    '#attributes' => [
+      'http-equiv' => 'x-ua-compatible',
+      'content' => 'ie=edge',
+    ],
+    '#tag' => 'meta',
+    '#attributes' => [
+      'http-equiv' => 'Content-Security-Policy',
+      'content' => 
+        "img-src " .
+            " 'self' " .
+            " filesystem " .
+            " http://localhost " .
+            " http://localhost:9966 " . 
+            " http://0.0.0.0 " .
+            " http://0.0.0.0:9966 " .
+            " http://127.0.0.1 " .
+            " http://127.0.0.1:9966 " .
+            " http://theme.piyononline.com " .
+            " http://editor.piyononline.com " .
+            " http://akademi.piyononline.com " .
+            " http://www.fen-to-image.com; " .
+        "connect-src " .
+            " localhost:9966 " .
+            " http://0.0.0.0:9966 " .
+            " http://127.0.0.1:9966 " .
+            " http://editor.piyononline.com " .
+            " http://theme.piyononline.com " .
+            " http://theme.piyononline.com:8765 " .
+            " http://theme.piyononline.com:4001 " .
+            " http://akademi.piyononline.com:5984 " .
+            " https://www.gstatic.com " .
+            " ws:; " .
+        "style-src " .
+            " 'self' " .
+            " https://fonts.googleapis.com " .
+            " https://maxcdn.bootstrapcdn.com " .
+            " 'unsafe-inline'; " .
+        "script-src " .
+            " 'self' " .
+            " filesystem " .
+            " http://akademi.piyononline.com:5984 " .
+            " http://localhost " .
+            " http://localhost:9966 " .
+            " http://0.0.0.0 " .
+            " http://0.0.0.0:9966 " .
+            " http://127.0.0.1 " .
+            " http://127.0.0.1:9966 " .
+            " http://theme.piyononline.com " .
+            " http://theme.piyononline.com:8765 " .
+            " http://theme.piyononline.com:4001 " .
+            " http://editor.piyononline.com " .
+            " http://akademi.piyononline.com " .
+            " https://www.gstatic.com " .
+            " http://unpkg.com " .
+            " https://unpkg.com " .
+            " http://ajax.googleapis.com " .
+            " 'unsafe-inline' " .
+            " 'unsafe-eval'; "
+    ],
+  ];
+  $page['#attached']['html_head'][] = [$head, 'head'];
+}
+/**
+ * Implements hook_toolbar().
+ */
+function chess_kingfish_toolbar() {
+  $examples = _chess_kingfish_toolbar_routes();
+  $links = [];
+  foreach ($examples as $module => $route) {
+    // Get the module info (title, description) from Drupal.
+    $info = system_get_info('module', $module);
+
+    // If there's no info, the example isn't enabled, so don't display it.
+    if (!empty($info)) {
+      $links[$module] = [
+        'title' => Html::escape($info['name']),
+        'url' => Url::fromRoute($route),
+        'attributes' => [
+          'title' => Html::escape($info['description']),
+        ],
+      ];
+    }
+  }
+
+  // Create the examples toolbar render array.
+  $items['examples'] = [
+    '#type' => 'toolbar_item',
+    'tab' => [
+      '#type' => 'link',
+      '#title' => t('Chess-Kingfish'),
+      '#url' => Url::fromRoute('<front>'),
+      '#attributes' => [
+        'title' => t('piyonAkademi Chess Tools'),
+        'class' => ['toolbar-icon', 'toolbar-icon-kingfish'],
+      ],
+    ],
+    'tray' => [
+      '#heading' => t('Developer Examples'),
+      'shortcuts' => [
+        '#theme' => 'links__toolbar_example',
+        '#links' => $links,
+        '#attributes' => [
+          'class' => ['toolbar-menu'],
+        ],
+      ],
+    ],
+    '#weight' => 99,
+    '#attached' => [
+      'library' => [
+        'kingfish/img/kingfish.icons',
+      ],
+    ],
+  ];
+
+  return $items;
+}
+
+
+/**
+ * Get a list of toolbar links to provide.
+ *
+ * @return string[]
+ *   Keyed array of toolbar routes. Keys are the module name which supplies the
+ *   route.
+ */
+function _chess_kingfish_toolbar_routes() {
+  return [
+    'ajax_example' => 'ajax_example.description',
+//    'batch_example' => 'batch_example.form',
+//    'block_example' => 'block_example.description',
+  ];
+}

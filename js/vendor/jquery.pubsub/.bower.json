@@ -1,0 +1,41 @@
+{
+  "name": "jquery.pubsub",
+  "main": "jquery.pubsub.js",
+  "version": "0.1.0",
+  "homepage": "https://github.com/felixexter/jquery.pubsub",
+  "authors": [
+    "felixexter <felixexter@ya.ru>"
+  ],
+  "description": "Pub/Sub implementation for jQuery.",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "pubsub",
+    "on",
+    "one",
+    "off",
+    "trigger",
+    "publish",
+    "subscribe",
+    "unsubscribe"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "!jquery.pubsub.js",
+    "!jquery.pubsub.min.js"
+  ],
+  "_release": "0.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.1.0",
+    "commit": "f8934b00878197f712aae6bb6e323ca7bcd1567a"
+  },
+  "_source": "https://github.com/felixexter/jquery.pubsub.git",
+  "_target": "^0.1.0",
+  "_originalSource": "jquery.pubsub",
+  "_direct": true
+}

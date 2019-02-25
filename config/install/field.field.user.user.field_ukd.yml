@@ -1,0 +1,19 @@
+angcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_chess_ukd
+id: user.user.field_chess_ukd
+field_name: field_chess_ukd
+entity_type: user
+bundle: user
+label: UKD
+description: 'Enter your UKD'
+required: false
+translatable: false
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings: {  }
+field_type: 

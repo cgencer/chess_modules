@@ -1,0 +1,35 @@
+{
+  "name": "xbase64",
+  "description": "Smart base64 encoder and decoder for Javascript",
+  "main": "xbase64.js",
+  "authors": [
+    "Vietor Liu <vietor.liu@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "base64",
+    "base64url"
+  ],
+  "homepage": "https://github.com/vietor/xbase64",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "940d683240",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "940d683240ea9f7ecca3bf297f53fa47f8565136"
+  },
+  "_source": "https://github.com/vietor/xbase64.git",
+  "_target": "*",
+  "_originalSource": "xbase64"
+}

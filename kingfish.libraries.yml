@@ -1,0 +1,183 @@
+cbBoard:
+  version: 1.x
+  js:
+    js/pubsub.js: {}
+    js/game.js: {}
+    js/editor-patches.js: {}
+  css:
+    theme:
+      css/pgnvjs.css: {}
+      js/vendor/jquery-tag-editor/jquery.tag-editor.css: {}
+      css/editor-patches.css: {}
+      css/minty-bootstrap.min.css: { minified: true }
+  dependencies:
+    - core/jquery
+    - core/underscore
+    - kingfish/pubsub
+    - kingfish/pouchdb
+    - kingfish/pgnvjs
+    - kingfish/popper
+    - kingfish/bootstrap
+    - kingfish/bootstrap-spinner
+    - kingfish/jquery-tag-editor
+    - kingfish/xbase
+    - kingfish/visjs
+    - kingfish/gifjs
+    - kingfish/fontawesome
+
+pubsub:
+  version: 1.7.0
+  dependencies:
+    - core/jquery
+    - nodejs_bridge/pubsub
+
+cbAI:
+  version: 1.x
+  js:
+    js/ai.js: {}
+  css:
+    theme:
+      css/minty-bootstrap.min.css: { minified: true }
+  dependencies:
+    - core/jquery
+    - core/underscore
+    - kingfish/pubsub
+    - kingfish/popper
+    - kingfish/bootstrap
+    - kingfish/xbase
+    - kingfish/fontawesome
+
+fields_elo:
+  version: 1.x
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+  js:
+    ../js/restrict2Num.js: {}
+  css:
+    theme:
+      ../css/fields_elo.css: {}
+
+fields_ukd:
+  version: 1.x
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+  js:
+    ../js/restrict2Num.js: {}
+  css:
+    theme:
+      ../css/fields_ukd.css: {}
+
+fields_uys:
+  version: 1.x
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+  js:
+    ../js/restrict2Num.js: {}
+  css:
+    theme:
+      ../css/fields_uys.css: {}
+
+fields_uhs:
+  version: 1.x
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+  js:
+    ../js/restrict2Num.js: {}
+  css:
+    theme:
+      ../css/fields_uhs.css: {}
+
+
+pgnvjs:
+  version: 1.0.0
+  js:
+    js/pgnvjs.js: {}
+
+popper:
+  remote: https://popper.js.org
+  version: 1.14.3
+  license: 
+    name: mit
+    url: https://popper.js.org
+    gpl-compatible: true
+  js:
+    https://unpkg.com/popper.js/dist/umd/popper.min.js: { type: external, minified: true }
+
+bootstrap:
+  version: 4.1.1
+  js:
+    https://unpkg.com/bootstrap@4.1.3/dist/js/bootstrap.min.js: { type: external, minified: true }
+  type: external
+  minified: true
+  attributes:
+    crossorigin: anonymous
+    integrity: "sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+
+bootstrap-spinner:
+  version: 1.6.4
+  license: 
+    name: mit
+    url: https://unpkg.com/bootstrap-input-spinner@1.6.4/LICENSE
+    gpl-compatible: true
+  js:
+    https://unpkg.com/bootstrap-input-spinner@1.6.4/src/bootstrap-input-spinner.js: { type: external }
+
+jquery-tag-editor:
+  version: 1.14.3
+  js:
+    js/vendor/jquery-tag-editor/jquery.tag-editor.min.js: { minified: true }
+
+xbase:
+  version: 1.1.0
+  js:
+    https://unpkg.com/x-base64@1.1.0/x-base64.js: { type: external, minified: true }
+
+visjs:
+  remote: https://github.com/almende/vis
+  version: 4.21.0
+  license: 
+    name: mit
+    url: https://unpkg.com/vis@4.21.0/LICENSE-MIT
+    gpl-compatible: true
+  js:
+    https://unpkg.com/vis@4.21.0/dist/vis.min.js: { type: external, minified: true }
+
+pouchdb:
+  remote: https://travis-ci.org/pouchdb
+  version: 7.0.0
+  license: 
+    name: mit
+    url: https://unpkg.com/pouchdb@7.0.0/LICENSE
+    gpl-compatible: true
+  js:
+    https://unpkg.com/pouchdb@7.0.0/dist/pouchdb.min.js: { type: external, minified: true }
+    https://unpkg.com/pouchdb@7.0.0/dist/pouchdb.find.min.js: { type: external, minified: true }
+
+gifjs:
+  remote: https://github.com/jnordberg/gif.js.git
+  version: 0.2.0
+  license: 
+    name: mit
+    url: https://github.com/jnordberg/gif.js/blob/master/LICENSE
+    gpl-compatible: true
+  js:
+    https://unpkg.com/gif.js@0.2.0/dist/gif.js: { type: external, minified: true }
+
+fontawesome:
+  remote: https://fortawesome.github.io/font-awesome/
+  version: 4.5.0
+  license: 
+    name: mit
+    url: https://fortawesome.github.io/font-awesome/license/
+    gpl-compatible: true
+  css:
+    theme:
+      https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css: { type: external, minified: true }

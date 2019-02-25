@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_chess_elo
+  module:
+    - chess_tsf
+    - user
+    - field
+id: user.user.field_chess_elo
+field_name: field_chess_elo
+entity_type: user
+bundle: user
+label: ELO
+description: 'Enter your ELO'
+required: false
+translatable: false
+default_value: { }
+default_value_callback: ''
+settings: {  }
+field_type:

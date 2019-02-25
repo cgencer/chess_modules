@@ -1,0 +1,32 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_permissions()
+ */
+function fields_uys_permissions() {
+  return array(
+    'view ukd' => array(
+      'title' => t('view UYS'),
+      'description' => t('Allows users to view another user\'s UYS-score'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function fields_uys_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  switch ($form_id) {
+    case 'user_register_form':
+      break;
+    case 'user_form':
+    case 'user_profile_form':
+      $entered = $form_state->getObject()->getEntity()->fields_uys;
+
+      break;
+    case 'default':
+      break;
+  }
+}

@@ -1,0 +1,7 @@
+chess_tsf.description:
+  path: '/examples/chess_tsf'
+  defaults:
+    _form: '\Drupal\chess_ukd\Form\Chess_TSF_Form'
+    _title: 'Chess-TSF'
+  requirements:
+    _permission: 'access content'

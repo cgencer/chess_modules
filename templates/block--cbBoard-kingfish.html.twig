@@ -1,0 +1,320 @@
+{#
+/**
+ * @file
+ * Profile chessboard block.
+ */
+#}
+	{{ attach_library('chess_kingfish/cbBoard') }}
+
+	<div id="chessBoard">
+		<h3>{{ title }}</h3>
+		<p>{{ description }}</p>
+
+		<table id="theTable" data-pgn="" data-fen="">
+			<tr>
+				<td></td>
+			</tr><tr>
+				<td id="tdLs"></td>
+			</tr><tr>
+				<td></td>
+			</tr>
+		</table>
+		<div id="theBoardID" class="alpha zeit"></div>
+	</div>
+
+	<div style='display:none;'>
+	<div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header"><h3 class="modal-title" id="commentModalLabel">Yorumlar</h3><button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button></div>
+
+				<div class="modal-body">
+					<form class="popup gameInfo">
+						<div class="row pull-right">
+							<div class="form-group col-md-3">
+								<fieldset>
+									<label class="control-label" for="videoSync">video</label>
+									<div class="input-group">
+										<div class="btn-group radio-group">
+											<label class="btn btn-primary not-active">on <input type="radio" value="on" name="videoSync"></label>
+											<label class="btn btn-primary active">off <input type="radio" value="off" name="videoSync"></label>
+										</div>
+									</div>
+								</fieldset>
+							</div>
+							<div id="komma" class="form-group col-md-9">
+								<fieldset>
+									<label class="control-label" for="commentPos">konum</label>
+									<div class="input-group">
+										<div id="commentPos" class="btn-group radio-group">
+											<label class="btn btn-primary active">hamleye <input type="radio" value="move" name="commentPos"></label>
+											<label class="btn btn-primary">öncesine <input type="radio" value="before" name="commentPos"></label>
+											<label class="btn btn-primary">sonrasına <input type="radio" value="after" name="commentPos"></label>
+										</div>
+									</div>
+								</fieldset>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+						<div class="row">
+							<div class="input-group col-md-12">
+								<div class="input-group-prepend">
+									<span class="input-group-text">Yorum</span>
+								</div>
+								<textarea id="commentAreaPop" class="form-control" aria-label="With textarea"></textarea>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+					</form>
+				</div>
+
+				<div class="modal-footer"><div class="btn-group btn-group-justified" role="group" aria-label="group button">
+					<div class="btn-group" role="group"><button type="button" class="btn btn-default" data-dismiss="modal"  role="button">Close</button></div>
+					<div class="btn-group btn-delete hidden" role="group"><button type="button" id="delImage" class="btn btn-default btn-hover-red" data-dismiss="modal"  role="button">Delete</button></div>
+					<div class="btn-group" role="group"><button type="button" id="saveImage" class="btn btn-default btn-hover-green" data-action="save" role="button">Save</button></div>
+				</div></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="loadModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header"><h3 class="modal-title" id="lineModalLabel">Oyun Yükleme</h3><button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button></div>
+
+				<div class="modal-body">
+					<form id="loadGame" method="POST" target="#" class="popup gameLoad">
+						<div class="row">
+							<div class="input-group col-sm-12">
+								<div class="input-group-prepend">
+									<span class="input-group-text">PGN =></span>
+								</div>
+								<textarea class="form-control" id="loadPGN" aria-label="With textarea"><?=base64_decode($_POST['pgnGame'])?></textarea>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-group col-sm-12">
+								<div class="input-group-prepend">
+									<span class="input-group-text">FEN =></span>
+								</div>
+								<textarea class="form-control" id="loadFEN" aria-label="With textarea"><?=base64_decode($_POST['fenGame'])?></textarea>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6 container">
+
+								<ul class="nav nav-tabs">
+									<li class="active"><a data-toggle="pill" class="btn tabPills" title="Çalışma" href="#home"><i class="fa fa-hourglass-start"></i></a></li>
+									<li><a data-toggle="pill" class="btn tabPills" title="Ön izleme" href="#menu1"><i class="fa fa-hourglass-half"></i></a></li>
+									<li><a data-toggle="pill" class="btn tabPills" title="Yayında" href="#menu2"><i class="fa fa-hourglass-end" aria-hidden="true"></i></a></li>
+									<li><a data-toggle="pill" class="btn tabPills" title="Silinmiş" href="#menu3"><i class="fa fa-hourglass-o" aria-hidden="true"></i></a></li>
+									<li><a data-toggle="pill" class="btn tabPills" title="Askıda" href="#menu4"><i class="fa fa-hourglass" aria-hidden="true"></i></a></li>
+								</ul>
+
+								<div class="tab-content">
+									<div id="home" class="tab-pane gameList-preview fade in active">
+										<h3>HOME</h3>
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+									</div>
+									<div id="menu1" class="tab-pane gameList-review fade"></div>
+									<div id="menu2" class="tab-pane gameList-live fade"></div>
+									<div id="menu3" class="tab-pane gameList-deleted fade"></div>
+									<div id="menu4" class="tab-pane gameList-onhold fade"></div>
+								</div>
+
+							</div>
+							<div class="input-group col-sm-6">
+								<div class="card gameCard" style="width: 18rem;">
+									<img class="card-img-top" src="" alt="(loading)">
+									<div class="card-body">
+										<h5 class="card-title">.</h5>
+										<p class="card-text">.</p>
+										<a href="#" id="loadButton" alt="" class="btn btn-primary">Oyunu yükle</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer"><div class="btn-group btn-group-justified" role="group" aria-label="group button">
+				</div></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title" id="lineModalLabel">Oyun Bilgileri</h3>
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">×</span>
+						<span class="sr-only">Close</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form class="popup gameInfo">
+						<div class="row">
+							<div class="input-group col-sm-12">
+								<div class="input-group-prepend">
+									<span class="input-group-text" id="">İsim</span>
+								</div>
+								<input type="text" class="form-control" id="field_GameName" value="" placeholder="Oyun ismini girin" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-group col-sm-12">
+								<div class="input-group-prepend">
+									<span class="input-group-text" id="">Beyaz</span>
+								</div>
+								<input type="text" class="form-control" id="field_whitePlayer" value="" placeholder="oyuncunun ismini girin" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-group col-sm-12">
+								<div class="input-group-prepend">
+									<span class="input-group-text" id="">Siyah</span>
+								</div>
+								<input type="text" class="form-control" id="field_blackPlayer" value="" placeholder="oyuncunun ismini girin" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-group col-sm-12">
+								<div class="input-group-prepend">
+									<span class="input-group-text" id="">Bilgi</span>
+								</div>
+								<input type="text" class="form-control" id="field_Info" value="" placeholder="Oyun bilgisini girin" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-group col-sm-6">
+								<input type="number" id="eloRating" class="form-control" placeholder="elo" value="1200" min="0" max="1800" step="4"/>
+							</div>
+							<div class="input-group col-sm-6">
+								<div class="input-group-prepend">
+									<span class="input-group-text">Süre</span>
+								</div>
+								<input type="text" class="form-control" id="field_timeMin" placeholder="min" size="4" />
+								<input type="text" class="form-control" id="field_timeMax" placeholder="max" size="4" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="dropdown col-sm-3">
+								<button class="btn btn-secondary dropdown-toggle" type="button" id="field_Status" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Durum</button>
+								<div class="dropdown-menu" aria-labelledby="field_Status">
+									<button class="dropdown-item" type="button">Askıda</button>
+									<button class="dropdown-item" type="button">İnceleniyor</button>
+									<button class="dropdown-item" type="button">Yayında</button>
+									<button class="dropdown-item" type="button">Silinmiş</button>
+								</div>
+							</div>
+							<div class="dropdown col-sm-3">
+								<button class="btn btn-secondary dropdown-toggle" type="button" id="field_Author" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Yazan</button>
+								<div class="dropdown-menu" aria-labelledby="field_Author">
+									<button class="dropdown-item" type="button">Action</button>
+									<button class="dropdown-item" type="button">Another action</button>
+									<button class="dropdown-item" type="button">Something else here</button>
+								</div>
+							</div>
+							<div class="input-group col-sm-6">
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col-sm-6">
+								<label for="field_Category">Kategoriler</label>
+								<input type="text" class="form-control" id="field_Category" placeholder="Kategoriler">
+							</div>
+							<div class="form-group col-sm-6">
+								<label for="field_Tags">Etiketler</label>
+								<input type="text" class="form-control" id="field_Tags" placeholder="Etiketler">
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<div class="btn-group btn-group-justified" role="group" aria-label="group button">
+						<div class="btn-group" role="group">
+							<button type="button" class="btn btn-default" data-dismiss="modal"  role="button">Close</button>
+						</div>
+						<div class="btn-group btn-delete hidden" role="group">
+							<button type="button" id="delImage" class="btn btn-default btn-hover-red" data-dismiss="modal"  role="button">Delete</button>
+						</div>
+						<div class="btn-group" role="group">
+							<button type="button" id="saveHeader" class="btn btn-default btn-hover-green" data-action="save" role="button">Save</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="saveModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+		<div class="modal-dialog"><div class="modal-content">
+			<div class="modal-header">
+				<h3 class="modal-title" id="commentModalLabel">Kayıt</h3>
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">×</span>
+					<span class="sr-only">Close</span>
+				</button>
+			</div>
+
+			<div class="modal-body">
+				<form class="popup gameSave">
+					<div class="row">
+						<div class="input-group col-md-12">
+							<div class="input-group-prepend">
+								<span class="input-group-text">PGN:</span>
+							</div>
+							<textarea class="form-control" aria-label="With textarea"></textarea>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</form>
+			</div>
+
+			<div class="modal-footer">
+				<div class="btn-group btn-group-justified" role="group" aria-label="group button">
+					<div class="btn-group" role="group">
+						<button type="button" class="btn btn-default" data-dismiss="modal"  role="button">Close</button>
+					</div>
+					<div class="btn-group" role="group">
+						<button type="button" id="saveGame" class="btn btn-default btn-hover-green saveGame" role="button">Save</button>
+					</div>
+				</div>
+			</div>
+		</div></div>
+	</div>
+
+	<div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+		<div class="modal-dialog"><div class="modal-content">
+			<div class="modal-header"><h3 class="modal-title" id="commentModalLabel">Bilgi</h3><button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button></div>
+
+			<div class="modal-body">
+				<p>Hamlelere yorum yapmak için:
+				<ul>
+				    <li>hamleye tıklanarak <span class="yellow">sarı renk</span> alması sağlanır.</li>
+				    <li>[SPACE] (boşluk) tuşuna basılır.</li>
+				    <li>hamlenin kendisine mi, öncesine mi, sonrasına mı yorum yapılacağı seçilmelidir.</li>
+				</ul></p>
+			</div>
+
+			<div class="modal-footer"><div class="btn-group btn-group-justified" role="group" aria-label="group button">
+				<div class="btn-group" role="group"><button type="button" class="btn btn-default" data-dismiss="modal"  role="button">OK</button></div>
+			</div></div>
+		</div>
+	</div>
+
+		<input type="hidden" id="db_cascaded" value="" />
+		<input type="hidden" id="db_checked" value="no" />
+		<input type="hidden" id="db_Name" value="" />
+		<input type="hidden" id="db_White" value="" />
+		<input type="hidden" id="db_Black" value="" />
+		<input type="hidden" id="db_Info" value="" />
+		<input type="hidden" id="db_Elo" value="" />
+		<input type="hidden" id="db_MinTime" value="" />
+		<input type="hidden" id="db_MaxTime" value="" />
+		<input type="hidden" id="db_Categories" value="" />
+		<input type="hidden" id="db_Tags" value="" />
+		<input type="hidden" id="db_Status" value="" />
+		<input type="hidden" id="db_Author" value="" />
+	</div>

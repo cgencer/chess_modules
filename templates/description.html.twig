@@ -1,0 +1,14 @@
+{#
+
+Description text for the Chess-Kingfish.
+
+#}
+
+{% set block_admin_page = url('block.admin_display')['#markup'] %}
+
+{% trans %}
+
+<p>The Chess-Kingfish provides an block which shows the various routes a player could make.<br />
+For managing, go to <a href="{{ block_admin_page }}">the block admin page</a></p>
+
+{% endtrans %}

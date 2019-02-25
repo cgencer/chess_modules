@@ -1,0 +1,19 @@
+angcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_chess_uys
+id: user.user.field_chess_uys
+field_name: field_chess_uys
+entity_type: user
+bundle: user
+label: UYS
+description: 'Enter your UYS'
+required: false
+translatable: false
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings: {  }
+field_type: 

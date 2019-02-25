@@ -1,0 +1,7 @@
+cron_example.settings:
+  type: config_object
+  label: 'Chess TSF settings'
+  mapping:
+    interval:
+      type: integer
+      label: 'Period between cron runs'

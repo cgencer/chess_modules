@@ -1,0 +1,32 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_permissions()
+ */
+function field_chess_uhs_permissions() {
+  return array(
+    'view ukd' => array(
+      'title' => t('view UKD'),
+      'description' => t('Allows users to view another user\'s UKD-score'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function field_chess_uhs_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  switch ($form_id) {
+    case 'user_register_form':
+      break;
+    case 'user_form':
+    case 'user_profile_form':
+      $entered = $form_state->getObject()->getEntity()->field_chess_ukd;
+
+      break;
+    case 'default':
+      break;
+  }
+}

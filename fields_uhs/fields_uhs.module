@@ -1,0 +1,32 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_permissions()
+ */
+function fields_uhs_permissions() {
+  return array(
+    'view uhs' => array(
+      'title' => t('view UHS'),
+      'description' => t('Allows users to view another user\'s UHS-score'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function fields_uhs_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  switch ($form_id) {
+    case 'user_register_form':
+      break;
+    case 'user_form':
+    case 'user_profile_form':
+      $entered = $form_state->getObject()->getEntity()->fields_uhs;
+
+      break;
+    case 'default':
+      break;
+  }
+}

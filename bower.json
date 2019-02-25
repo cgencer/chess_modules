@@ -1,0 +1,31 @@
+{
+  "name": "Chess-Kingfish",
+  "authors": [
+    "Cem Gencer <cem.gencer@me.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "js/vendor/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "base-64": "^0.1.0",
+    "jquery": "^3.3.1",
+    "socket.io-client": "^2.1.1",
+    "xbase64": "*",
+    "js-base64": "^2.4.9",
+    "crypto-js": "^3.1.9",
+    "base64-utf8": "*",
+    "base64": "https://github.com/davidchambers/Base64.js.git#^1.0.1",
+    "jGrowl": "jgrowl#^1.4.6",
+    "jquery.pubsub": "^0.1.0",
+    "pubsub-js": "^1.7.0"
+  }
+}

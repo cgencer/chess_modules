@@ -1,0 +1,11 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+
+/*
+require('XLSXReader.php');
+$xlsx = new XLSXReader('sample.xlsx');
+
+$sheets = $xlsx->getSheetNames();
+$data = $xlsx->getSheetData('Sales');
+*/

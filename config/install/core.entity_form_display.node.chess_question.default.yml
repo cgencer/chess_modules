@@ -1,0 +1,38 @@
+# core.entity_form_display.node.chess_question.default.yml
+langcode: en
+status: true
+dependencies:
+    config:
+        - field.field.node.chess_question.body
+        - field.field.node.chess_question.fen
+        - node.type.chess_question
+    module:
+        - text
+        - user
+id: node.chess_question.default
+targetEntityType: node
+bundle: chess_question
+mode: default
+content:
+    body:
+        label: hidden
+        type: text_textarea_with_summary
+        weight: 102
+        settings: {  }
+        third_party_settings: {  }
+        region: content
+    fen:
+        weight: 101
+        label: above
+        settings:
+            size: 128
+            placeholder: ''
+        third_party_settings: {  }
+        type: string_textfield
+        region: content
+    links:
+        weight: 100
+hidden:
+    body: true
+    field_tags: true
+    fen: true

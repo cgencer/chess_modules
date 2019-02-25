@@ -1,0 +1,26 @@
+jgrowl:
+  version: 1.4.3
+  js:
+    ../js/vendor/jGrowl/jquery.jgrowl.min.js: {}
+  css:
+    theme:
+      ../js/vendor/jgrowl/jquery.jgrowl.min.css: {}
+  dependencies:
+    - core/jquery
+
+pubsub:
+  version: 1.7.0
+  js:
+    ../js/vendor/jquery.pubsub/jquery.pubsub.min.js: {}
+    ../js/chess_nodejs_pubsub.js: {}
+  dependencies:
+    - core/jquery
+
+notify:
+  js:
+    ../js/chess_nodejs_bridge.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+    - nodejs:nodejs
+    - nodejs_notify/jgrowl

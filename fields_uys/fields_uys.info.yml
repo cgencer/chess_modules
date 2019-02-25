@@ -1,0 +1,9 @@
+name: Chess-UYS-Field
+description: 'Allows you to grab UYS scores from Turkish Chess Federation pages.'
+type: module
+core: '8.x'
+package: 'Field types'
+project: 'fields_uys'
+dependencies:
+  - field
+  - kingfish:tsf

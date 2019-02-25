@@ -1,0 +1,22 @@
+# field.field.node.chess_question.fen.yml
+langcode: en
+status: true
+dependencies:
+    config:
+        - field.storage.node.fen
+        - node.type.chess_question
+    module:
+        - text
+id: node.chess_question.fen
+field_name: fen
+entity_type: node
+bundle: chess_question
+label: 'FEN game'
+description: 'FEN string for the game.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+    display_summary: false
+field_type: text

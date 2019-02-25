@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+    - field
+    - chess_tsf
+id: user.field_chess_elo
+field_name: field_chess_elo
+entity_type: user
+type: string
+settings:
+  max_length: 5
+module: core
+locked: true
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

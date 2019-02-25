@@ -1,0 +1,14 @@
+# node.type.chess_question.yml
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - chess_kingfish
+name: 'Chess question'
+type: chess_question
+description: 'Content type for <em>Piyon Akademisi</em> chess questions'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: true

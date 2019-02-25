@@ -1,0 +1,22 @@
+# field.field.node.chess_question.body.yml
+langcode: en
+status: true
+dependencies:
+    config:
+        - field.storage.node.body
+        - node.type.chess_question
+    module:
+        - text
+id: node.chess_question.body
+field_name: body
+entity_type: node
+bundle: chess_question
+label: Question
+description: 'More specific information about the chess question.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+    display_summary: false
+field_type: text_with_summary

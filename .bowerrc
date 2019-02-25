@@ -1,0 +1,10 @@
+{
+  "directory": "js/vendor/",
+  "color": true,
+  "save": true,
+  "scripts": {
+    "preinstall": "",
+    "postinstall": "",
+    "preuninstall": ""
+  }
+}

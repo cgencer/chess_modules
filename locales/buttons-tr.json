@@ -1,0 +1,14 @@
+{
+    "flipper" : "Masayı döndür",
+    "first" : "İlk hamleye git",
+    "prev" : "Önceki hamle",
+    "next" : "Sonraki hamle",
+    "play" : "İlerle / (ilerlemeyi) Durdur",
+    "last" : "Son hamleye git",
+    "deleteVar" : "Varyantı sil",
+    "promoteVar" : "Varyantı öne al",
+    "deleteMoves" : "Buradan itibaren hamleleri sil",
+    "nags" : "Yorumlar",
+    "pgn" : "Oyunun PGN'sini göster",
+    "hidePGN" : "PGN'yi gizle"
+}

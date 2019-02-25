@@ -1,0 +1,9 @@
+name: Chess-UKD-Field
+description: 'Allows you to grab UKD scores from Turkish Chess Federation pages.'
+type: module
+core: '8.x'
+package: 'Field types'
+project: 'fields_ukd'
+dependencies:
+  - field
+  - kingfish:tsf
