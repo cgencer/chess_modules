@@ -2,17 +2,17 @@ angcode: en
 status: true
 dependencies:
   config:
-    - field.storage.user.field_ukd
+    - field.storage.user.field_uhs
   module:
     - user
     - field
     - tsf_gateway
-id: user.user.field_ukd
-field_name: field_ukd
+id: user.user.field_uhs
+field_name: field_uhs
 entity_type: user
 bundle: user
-label: UKD
-description: 'Enter your UKD'
+label: UHS
+description: 'Enter your UHS'
 required: false
 translatable: false
 default_value:

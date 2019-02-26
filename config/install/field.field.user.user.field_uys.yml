@@ -2,9 +2,13 @@ angcode: en
 status: true
 dependencies:
   config:
-    - field.storage.user.field_chess_uys
-id: user.user.field_chess_uys
-field_name: field_chess_uys
+    - field.storage.user.field_uys
+  module:
+    - user
+    - field
+    - tsf_gateway
+id: user.user.field_uys
+field_name: field_uys
 entity_type: user
 bundle: user
 label: UYS

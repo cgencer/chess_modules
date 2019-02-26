@@ -4,9 +4,9 @@ dependencies:
   module:
     - user
     - field
-    - chess_tsf
-id: user.field_chess_elo
-field_name: field_chess_elo
+    - tsf_gateway
+id: user.field_elo
+field_name: field_elo
 entity_type: user
 type: string
 settings:

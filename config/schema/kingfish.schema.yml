@@ -1,7 +1,7 @@
-block.settings.chess_kingfish:
+block.settings.kingfish:
   type: block_settings
   label: 'Example configurable text block configuration'
   mapping:
-    chess_kingfish_block_string:
+    kingfish_block_string:
       type: text
       label: 'Block contents'

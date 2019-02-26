@@ -5,8 +5,8 @@ dependencies:
     - user
     - field
     - tsf_gateway
-id: user.field_ukd
-field_name: field_ukd
+id: user.field_uhs
+field_name: field_uhs
 entity_type: user
 type: string
 settings:

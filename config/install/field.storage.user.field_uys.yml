@@ -3,8 +3,10 @@ status: true
 dependencies:
   module:
     - user
-id: user.field_chess_uys
-field_name: field_chess_uys
+    - field
+    - tsf_gateway
+id: user.field_uys
+field_name: field_uys
 entity_type: user
 type: string
 settings:
