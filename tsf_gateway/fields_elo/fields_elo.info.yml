@@ -1,9 +1,9 @@
-name: Chess-ELO-Field
+name: TSF-ELO-Field
 description: 'Allows you to grab ELO scores from Turkish Chess Federation pages.'
 type: module
 core: '8.x'
-package: 'Field types'
+package: 'Piyon Akademi'
 project: 'fields_elo'
 dependencies:
   - field
-  - kingfish:tsf
+  - kingfish:tsf_gateway

@@ -2,6 +2,6 @@ chess_kingfish.description:
   path: '/kingfish'
   defaults:
     _controller: '\Drupal\kingfish\Controller\KingfishController::description'
-    _title: 'Chess-Kingfish'
+    _title: 'Kingfish'
   requirements:
     _permission: 'access content'
