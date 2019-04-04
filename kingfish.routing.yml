@@ -1,4 +1,4 @@
-chess_kingfish.description:
+kingfish.description:
   path: '/kingfish'
   defaults:
     _controller: '\Drupal\kingfish\Controller\KingfishController::description'

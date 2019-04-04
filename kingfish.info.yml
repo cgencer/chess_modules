@@ -6,5 +6,4 @@ package: 'Piyon Akademi'
 project: 'kingfish'
 dependencies:
   - drupal:block
-  - drupal:node
   - tsf_gateway

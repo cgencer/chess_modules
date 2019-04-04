@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\chess_kingfish\Utility;
+namespace Drupal\kingfish\Utility;
 
 /**
  * Trait to implement a "drop-in" template for Example's controllers.

@@ -1,9 +1,10 @@
 cbBoard:
   version: 1.x
   js:
-    js/pubsub.js: {}
-    js/game.js: {}
-    js/editor-patches.js: {}
+    js/vendor/jquery.pubsub/jquery.pubsub.min.js: {}
+    js/nodejs_pubsub.js: { minified: false }
+    js/game.js: { minified: false }
+    js/editor-patches.js: { minified: false }
   css:
     theme:
       css/pgnvjs.css: {}
@@ -12,24 +13,52 @@ cbBoard:
       css/minty-bootstrap.min.css: { minified: true }
   dependencies:
     - core/jquery
+    - core/jquery.once
     - core/underscore
+    - kingfish/jquery-tag-editor
+    - kingfish/jgrowl
+    - kingfish/mustache
+    - kingfish/bootstrap
     - kingfish/pubsub
+    - kingfish/pubsubjs
     - kingfish/pouchdb
     - kingfish/pgnvjs
     - kingfish/popper
-    - kingfish/bootstrap
     - kingfish/bootstrap-spinner
-    - kingfish/jquery-tag-editor
     - kingfish/xbase
     - kingfish/visjs
     - kingfish/gifjs
+    - kingfish/fontawesome
+
+cbAI:
+  version: 1.x
+  js:
+    js/nodejs_pubsub.js: {}
+
+    js/ai.js: {}
+  css:
+    theme:
+      css/minty-bootstrap.min.css: { minified: true }
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - kingfish/jgrowl
+    - core/underscore
+    - kingfish/mustache
+    - kingfish/bootstrap
+    - kingfish/pubsub
+    - kingfish/pubsubjs
+    - kingfish/stockfish
+    - kingfish/popper
+    - kingfish/xbase
     - kingfish/fontawesome
 
 pubsub:
   version: 1.7.0
   dependencies:
     - core/jquery
-    - nodejs_bridge/pubsub
+  js:
+    js/nodejs_pubsub.js: {}
 
 cbAI:
   version: 1.x
@@ -41,9 +70,65 @@ cbAI:
   dependencies:
     - core/jquery
     - core/underscore
-    - kingfish/pubsub
-    - kingfish/popper
     - kingfish/bootstrap
+    - kingfish/mustache
+    - kingfish/pubsub
+    - kingfish/pubsubjs
+    - kingfish/popper
+    - kingfish/xbase
+    - kingfish/fontawesome
+
+cbButtons:
+  version: 1.x
+  js:
+    js/ai.js: {}
+  css:
+    theme:
+      css/minty-bootstrap.min.css: { minified: true }
+  dependencies:
+    - core/jquery
+    - core/underscore
+    - kingfish/bootstrap
+    - kingfish/mustache
+    - kingfish/pubsub
+    - kingfish/pubsubjs
+    - kingfish/popper
+    - kingfish/xbase
+    - kingfish/fontawesome
+
+cbHeader:
+  version: 1.x
+  js:
+    js/ai.js: {}
+  css:
+    theme:
+      css/minty-bootstrap.min.css: { minified: true }
+  dependencies:
+    - core/jquery
+    - core/underscore
+    - kingfish/bootstrap
+    - kingfish/mustache
+    - kingfish/pubsub
+    - kingfish/pubsubjs
+    - kingfish/popper
+    - kingfish/xbase
+    - kingfish/fontawesome
+
+cbMoves:
+  version: 1.x
+  js:
+    js/ai.js: {}
+  css:
+    theme:
+      css/minty-bootstrap.min.css: { minified: true }
+  dependencies:
+    - core/jquery
+    - core/underscore
+    - kingfish/bootstrap
+    - kingfish/mustache
+    - kingfish/pubsub
+    - kingfish/pubsubjs
+    - kingfish/popper
     - kingfish/xbase
     - kingfish/fontawesome
 
@@ -130,9 +215,23 @@ bootstrap-spinner:
     https://unpkg.com/bootstrap-input-spinner@1.6.4/src/bootstrap-input-spinner.js: { type: external }
 
 jquery-tag-editor:
-  version: 1.14.3
+  version: 1.0.21
+  license: 
+    name: mit
+    url: http://www.opensource.org/licenses/mit-license.php
+    gpl-compatible: true
   js:
-    js/vendor/jquery-tag-editor/jquery.tag-editor.min.js: { minified: true }
+    https://unpkg.com/jquery-tageditor@1.0.1/jquery.tag-editor.min.js: { type: external, minified: true }
+
+jgrowl:
+  version: 1.4.6
+  js:
+    https://unpkg.com/jgrowl@1.4.6/jquery.jgrowl.min.js: { type: external, minified: true }
+  css:
+    theme:
+      https://unpkg.com/jgrowl@1.4.6/jquery.jgrowl.min.css: { type: external, minified: true }
+  dependencies:
+    - core/jquery
 
 xbase:
   version: 1.1.0
@@ -160,6 +259,17 @@ pouchdb:
     https://unpkg.com/pouchdb@7.0.0/dist/pouchdb.min.js: { type: external, minified: true }
     https://unpkg.com/pouchdb@7.0.0/dist/pouchdb.find.min.js: { type: external, minified: true }
 
+firebase:
+  remote: https://travis-ci.org/pouchdb
+  version: 5.9.1
+  license: 
+    name: mit
+    url: https://unpkg.com/pouchdb@7.0.0/LICENSE
+    gpl-compatible: true
+  js:
+    https://www.gstatic.com/firebasejs/5.9.1/firebase.js: { type: external, minified: true }
+    js/firebase_init.js: {}
+
 gifjs:
   remote: https://github.com/jnordberg/gif.js.git
   version: 0.2.0
@@ -169,6 +279,37 @@ gifjs:
     gpl-compatible: true
   js:
     https://unpkg.com/gif.js@0.2.0/dist/gif.js: { type: external, minified: true }
+
+mustache:
+  remote: http://github.com/janl/mustache.js
+  version: 1.7.0
+  license: 
+    name: mit
+    url: http://mustache.mit-license.org
+    gpl-compatible: true
+  js:
+    https://unpkg.com/mustache@3.0.1/mustache.js: { type: external, minified: false }
+
+pubsubjs:
+  remote: http://roderick.dk
+  version: 1.7.0
+  license: 
+    name: mit
+    url: http://mrgnrdrck.mit-license.org
+    gpl-compatible: true
+  js:
+    https://unpkg.com/pubsub-js@1.7.0/src/pubsub.js: { type: external, minified: false }
+
+stockfish:
+  remote: https://github.com/nmrugg/stockfish.js
+  version: 8.0.0
+  license: 
+    name: mit
+    url: https://github.com/nmrugg/stockfish.js
+    gpl-compatible: true
+  js:
+    js/vendor/load_engine.js: {}
+    https://unpkg.com/stockfish.js@10.0.1/stockfish.wasm.js: { type: external, minified: true }
 
 fontawesome:
   remote: https://fortawesome.github.io/font-awesome/

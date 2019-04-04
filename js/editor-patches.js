@@ -1,9 +1,13 @@
-(function ($, Drupal, PouchDB) {
+(function ($, Drupal) {
+//  Drupal.behaviors.chessAI = {
+//    attach: function (context, settings) {
+
 	var edita = {
 		fastMode: false,
 		theBoardID: "theBoardID",
-		remoteDB: new PouchDB('http://piyon:akademi@akademi.piyononline.com:5984/games'),
-		localDB: new PouchDB('games'),
+//		remoteDB: new PouchDB('https://piyon:akademi@akademi.piyononline.com:5984/games'),
+//		remoteDB: new PouchDB('games'), 
+//		localDB: new PouchDB('games'),
 		comments: [],
 		modals: {
 			request: 'i', //'s'
@@ -59,6 +63,7 @@
 		},
 		retrieveGames: function(db, status){
 			var diz = this;
+
 			diz.localDB.find({
 				selector: {state: status},
 				fields: ['_id', 'author', 'info', 'date', 'pgn', 'fen'],
@@ -124,7 +129,7 @@
 				},
 				date: new Date().toISOString()
 			};
-
+/*
 			this.remoteDB.post(paket).then(function (doc) {
 				if(doc.ok) {
 					console.log('created entry.');
@@ -138,6 +143,7 @@
 			}).catch(function (err) {
 				console.dir(err);
 			});
+*/
 		},
 		moveListPatches: function(){
 			$('div#'+this.theBoardID+'Moves>.comment').wrap("<i class='fa fa-comment' alt=''></i>");
@@ -381,7 +387,7 @@
 
 			console.log('booting up...');
 
-			$.getJSON('http://theme.piyononline.com/modules/chess_kingfish/xl8.json', {})
+			$.getJSON('https://lab.piyononline.com/modules/kingfish/xl8.json', {})
 				.done(function( json ) {
 					edita.comments = json;
 				})
@@ -390,7 +396,7 @@
 					console.log( "Request Failed: " + err );
 				}
 			);
-
+/*
 			this.localDB.sync(this.remoteDB, {
 				live: true,
 				retry: true
@@ -402,6 +408,7 @@
 			_.each(['preview', 'review', 'live', 'deleted', 'onhold'], function(i, v){
 				diz.retrieveGames(this.localDB, i);
 			});
+*/
 			$(document).ready(function() {
 				diz.patchUI('theBoardID');
 			});
@@ -458,6 +465,9 @@
 	};
 
 	edita.init(false, $);
+
+//	}}
+
 })(jQuery, Drupal, PouchDB);
 
 // TODOs:

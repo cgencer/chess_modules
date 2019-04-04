@@ -1,4 +1,4 @@
-$(function() {
+jQuery(function($){
 	var fens = [
 		'rnbqkbnr/ppp1pppp/8/3p4/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2',
 		'rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2',
@@ -7,7 +7,7 @@ $(function() {
 		'4k3/8/8/8/8/8/4P3/4K3 w - - 5 39'
 	];
 	var lineData = [], movesData = [];
-	var socket = io.connect('http://theme.piyononline.com:4001/fish', {
+	var socket = io.connect('https://lab.piyononline.com:4001/fish', {
 		query: 'fen=' + window.btoa(
 			fens[ Math.floor(Math.random()*fens.length)]
 			)
@@ -38,4 +38,4 @@ $(function() {
 		}
 
 	});
-});
+})(jQuery);

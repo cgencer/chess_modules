@@ -24,8 +24,8 @@ class ReportWorkerOne extends ReportWorkerBase {
 	 */
 
 	// $types = ['ukd', 'uhs', 'uys'];
-	$zipArc = 'http://ukd.tsf.org.tr/ukdlistesi/'.'ukd'.'_listesi_'.'20180901'.'.zip';
-	$tempFile = 'ukd_list.zip';
+	protected $zipArc = 'http://ukd.tsf.org.tr/ukdlistesi/'.'ukd'.'_listesi_'.'20180901'.'.zip';
+	protected $tempFile = 'ukd_list.zip';
 
 	public function processItem($data) {
 		$this->chess_ukd_cron();

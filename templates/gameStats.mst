@@ -1,0 +1,5 @@
+<dl>
+	{{#data}}
+		<dt>{{w.mg}} | {{b.mg}} | {{t.mg}}</dt>
+	{{/data}}
+</dl>

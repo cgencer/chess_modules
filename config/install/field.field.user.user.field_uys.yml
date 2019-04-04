@@ -7,6 +7,10 @@ dependencies:
     - user
     - field
     - tsf_gateway
+  enforced:
+    module:
+      - kingfish
+      - tsf_gateway
 id: user.user.field_uys
 field_name: field_uys
 entity_type: user

@@ -5,6 +5,7 @@ dependencies:
   enforced:
     module:
       - kingfish
+      - tsf_gateway
 name: 'Chess question'
 type: chess_question
 description: 'Content type for <em>Piyon Akademisi</em> chess questions'
